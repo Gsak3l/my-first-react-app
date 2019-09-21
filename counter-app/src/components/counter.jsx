@@ -12,10 +12,16 @@ class Counter extends Component
         return (
             //if we don't want to create a div, we can always use the <React.Fragment></React.Fragment>
             <div>
-                <span className="badge badge-primary m-2">{this.formatCount()}</span>
+                <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button className="btn btn-secondary btn-sm">Incerment</button>
             </div> 
         );
+    }
+
+    getBadgeClasses() {
+        let classes = "badge m-2 badge-";
+        classes += (this.state.count === 0) ? "warning" : "primary";
+        return classes;
     }
 
     formatCount()
