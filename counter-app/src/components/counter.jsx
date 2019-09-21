@@ -9,7 +9,8 @@ class Counter extends Component
 
     render() 
     { 
-        return (
+        return ( /*parenthesis cannot move to the bottom because
+            javascript thinks that the keyword return is equal to return ;*/
             //if we don't want to create a div, we can always use the <React.Fragment></React.Fragment>
             <div>
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
@@ -30,5 +31,4 @@ class Counter extends Component
         return count === 0 ? 'Zero' : count;
     }
 }
- 
 export default Counter;
