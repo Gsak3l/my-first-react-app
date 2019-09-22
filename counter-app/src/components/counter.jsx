@@ -14,19 +14,23 @@ class Counter extends Component
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
 
+    handleIncrement()
+    {
+        console.log("Hey there", this.state.count);
+    }
+
     render() 
     { 
         return ( /*parenthesis cannot move to the bottom because
             javascript thinks that the keyword return is equal to return ;*/
             //if we don't want to create a div, we can always use the <React.Fragment></React.Fragment>
             <div>
-                {this.state.tags.length === 0 && 'Please create a new tag!'}
-                {this.renderTags()}
+                <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+                <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
             </div> 
             //true + string = string !! e.x. true && mike = mike
         );
     }
-    /*
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
         classes += (this.state.count === 0) ? "warning" : "primary";
@@ -38,6 +42,5 @@ class Counter extends Component
         const {count} = this.state;
         return count === 0 ? 'Zero' : count;
     }
-    */
 }
 export default Counter;
