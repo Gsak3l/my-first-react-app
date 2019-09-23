@@ -46,3 +46,4 @@ class Counter extends Component
     }
 }
 export default Counter;
+//chapter named "what happens when state changes didn't have any code"
