@@ -4,7 +4,7 @@ class Counter extends Component
 {
     state = 
     {
-        count:1, 
+        count:0, 
         tags: ['mikey']
     };
 
