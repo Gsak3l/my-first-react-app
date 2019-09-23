@@ -8,13 +8,15 @@ class Counter extends Component
         tags: ['mikey']
     };
 
+    //constructor(){super();this.handleIncrement = this.handleIncrement.bind(this);}
+
     renderTags()
     {
         if (this.state.tags.length === 0) return <p>There are no tags</p>;
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
 
-    handleIncrement()
+    handleIncrement = () => //this basically allows us to use the keyword this
     {
         console.log("Hey there", this.state.count);
     }
