@@ -18,7 +18,7 @@ class Counter extends Component
 
     handleIncrement = () => //this basically allows us to use the keyword this
     {
-        console.log("Hey there", this.state.count);
+        this.setState({count: this.state.count + 1}) ; //++ doesn't work
     }
 
     render() 
