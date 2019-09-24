@@ -26,11 +26,13 @@ class Counter extends Component
 
     render() 
     { 
+        console.log(this.props);
         //console.log('props', this.props); //props is a plain javascript object
         return ( /*parenthesis cannot move to the bottom because
             javascript thinks that the keyword return is equal to return ;*/
             //if we don't want to create a div, we can always use the <React.Fragment></React.Fragment>
             <div>
+                {this.props.children}
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button onClick={ () => this.handleIncrement(this.state.value)} className="btn btn-secondary btn-sm">Increment</button>
             </div> 
