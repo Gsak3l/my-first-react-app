@@ -4,7 +4,7 @@ class Counter extends Component
 {
     state = 
     {
-        count:0, 
+        value: this.props.value, 
         tags: ['mikey']
     };
 
@@ -16,35 +16,36 @@ class Counter extends Component
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     };
 
-    handleIncrement = (product) => //this basically allows us to use the keyword this
+    handleIncrement = () => //this basically allows us to use the keyword this
     {
-        console.log(product);
-        this.setState({count: this.state.count + 1}) ; //++ doesn't work
+        //console.log(product);
+        this.setState({value: this.state.value + 1}) ; //++ doesn't work
     };
 
     //doHandleIncrement = () => {this.handleIncrement({id:1});}; //messy way
 
     render() 
     { 
+        //console.log('props', this.props); //props is a plain javascript object
         return ( /*parenthesis cannot move to the bottom because
             javascript thinks that the keyword return is equal to return ;*/
             //if we don't want to create a div, we can always use the <React.Fragment></React.Fragment>
             <div>
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={ () => this.handleIncrement(this.state.count)} className="btn btn-secondary btn-sm">Increment</button>
+                <button onClick={ () => this.handleIncrement(this.state.value)} className="btn btn-secondary btn-sm">Increment</button>
             </div> 
             //true + string = string !! e.x. true && mike = mike
         );
     };
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += (this.state.count === 0) ? "warning" : "primary";
+        classes += (this.state.value === 0) ? "warning" : "primary";
         return classes;
     };
     
     formatCount()
     {
-        const {count} = this.state;
+        const {value: count} = this.state;
         return count === 0 ? 'Zero' : count;
     };
 }
