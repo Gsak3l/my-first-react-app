@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/navbar'
 import Counters from './components/counters';
 
-function App() 
+class App extends Counters  
 {
   state =
     {
@@ -29,30 +29,35 @@ function App()
     this.setState({ counters });
   };
 
-  handleReset = () => {
+  handleReset = () => 
+  {
     const counters = this.state.counters.map
       (
-        c => {
+        c => 
+        {
           c.value = 0;
           return c;
         }
       );
-    this.setState({ counters });
+    this.setState({counters});
   };
 
-  return (
-    <React.Fragment>
-      <NavBar/>
-      <main className="container">
-        <Counters 
-          onReset={this.handleReset} 
-          onIncrement={this.handleIncrement}
-          onDelete={this.handleDelete}
-          counters={this.state.counters}
-        />
+  render()
+  {
+    return (
+      <React.Fragment>
+       <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
+       <main className="container">
+         <Counters 
+            onReset={this.handleReset} 
+            onIncrement={this.handleIncrement}
+            onDelete={this.handleDelete}
+            counters={this.state.counters}
+          />
       </main>
     </React.Fragment>
   );
+}
 }
 
 export default App;
