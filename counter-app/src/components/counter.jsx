@@ -25,7 +25,6 @@ class Counter extends Component
 
     render() 
     { 
-        console.log(this.props);
         //console.log('props', this.props); //props is a plain javascript object
         return ( /*parenthesis cannot move to the bottom because
             javascript thinks that the keyword return is equal to return ;*/

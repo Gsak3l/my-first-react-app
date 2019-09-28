@@ -44,6 +44,7 @@ class App extends Counters
 
   render()
   {
+    console.log("app-rendered");
     return (
       <React.Fragment>
        <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
@@ -56,8 +57,18 @@ class App extends Counters
           />
       </main>
     </React.Fragment>
-  );
+    );
+  };
+  constructor() 
+  {
+    super();
+    console.log("app-constructor");
+  };
+  componentDidMount()
+  {
+    console.log("app-mounted");
+  };
 }
-}
+
 
 export default App;
